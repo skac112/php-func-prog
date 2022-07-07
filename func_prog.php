@@ -737,16 +737,16 @@ class FuncArr
         }
 
         $rgZipArr = [];
-        $poThisCopyArr = $poThisCopy->m_rgArr;
-        $poOtherCopyArr = $poOtherCopy->m_rgArr;
-        reset($poThisCopyArr);
-        reset($poOtherCopyArr);
+        $rgThisCopyArr = $poThisCopy->m_rgArr;
+        $rgOtherCopyArr = $poOtherCopy->m_rgArr;
+        reset($rgThisCopyArr);
+        reset($rgOtherCopyArr);
         
-        for ($nIdx = 0; $nIdx < $nOtherSize; $nIdx++)
+        for ($nIdx = 0; $nIdx < $nGreatSize; $nIdx++)
         {
-            $rgZipArr[] = [current($poThisCopyArr), current($$poOtherCopyArr)];
-            next($poThisCopyArr);
-            next($poOtherCopyArr);    
+            $rgZipArr[] = [current($rgThisCopyArr), current($rgOtherCopyArr)];
+            next($rgThisCopyArr);
+            next($rgOtherCopyArr);    
         } 
 
         return fp($rgZipArr);
